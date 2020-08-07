@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html">
+	<h:head>
+	    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+	    <h:outputStylesheet library="css" name="bootstrap.min.css" />     
+	    <title>List invoices</title>
+	    <style type="text/css">
+	        .tableUpdated {
+	            width: 90% !important;
+	            margin: 17px 58px 0 !important;
+	        }
+	        .btnSpace {
+	            margin: 17px;
+	        }
+	        .headerStyle {
+	            margin: 17px 58px 0 !important;
+	        }
+	    </style>
+	</h:head>
+	<h:body>
+		<center><h2><h:outputText value="Invoice items of invoice #{invoiceBean.currentInvoice.id}"/></h2></center>
+		<h3><h:outputText value="Invoice data" styleClass="headerStyle"/></h3>
+		<h:form id="invoiceForm">
+			<h:dataTable id="invoiceTable" binding="#{invoiceTable}" value="#{invoiceBean.currentInvoice}" var="invoice" styleClass="table table-bordered tableUpdated">
+			    <h:column>
+		    		<f:facet name="header">Customer name</f:facet>
+	            	<h:outputText value="#{invoice.customerName}"/>
+			    </h:column>
+			    <h:column>
+		    		<f:facet name="header">Issue date</f:facet>
+	            	<h:outputText value="#{invoice.issueDate}"/>
+			    </h:column>
+			    <h:column>
+		    		<f:facet name="header">Due date</f:facet>
+	            	<h:outputText value="#{invoice.dueDate}"/>
+			    </h:column>
+				<h:column>
+		    		<f:facet name="header">Comment</f:facet>
+	            	<h:outputText value="#{invoice.invoiceComment}"/>
+			    </h:column>
+			    <h:column>
+		    		<f:facet name="header">Calculated invoice total</f:facet>
+	            	<h:outputText value="#{invoice.invoiceTotal}"/>
+			    </h:column>
+			</h:dataTable>
+		</h:form>
+		<h3><h:outputText value="Invoice items" styleClass="headerStyle"/></h3>
+		<h:form id="invoiceItemForm">
+			<h:dataTable id="invoiceItemTable" binding="#{itemTable}" value="#{invoiceBean.currentInvoiceItems}" var="item" styleClass="table table-striped table-bordered tableUpdated">
+			    <h:column>
+		    		<f:facet name="header">Product name</f:facet>
+	            	<h:outputText value="#{item.productName}"/>
+			    </h:column>
+			    <h:column>
+		    		<f:facet name="header">Unit price</f:facet>
+	            	<h:outputText value="#{item.unitPrice}"/>
+			    </h:column>
+			    <h:column>
+		    		<f:facet name="header">Quantity</f:facet>
+	            	<h:outputText value="#{item.quantity}"/>
+			    </h:column>
+				<h:column>
+		    		<f:facet name="header">Calculated total price</f:facet>
+	            	<h:outputText value="#{item.totalItemPrice}"/>
+			    </h:column>
+			</h:dataTable>
+		</h:form>
+        <h:button outcome="invoiceList" value="List items" styleClass="btn btn-primary headerStyle"/>
+	</h:body>
+</html>
