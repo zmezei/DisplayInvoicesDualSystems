@@ -73,15 +73,15 @@ public class ObjectFactory {
     private final static QName _Double_QNAME = new QName("http://schemas.microsoft.com/2003/10/Serialization/", "double");
     private final static QName _QName_QNAME = new QName("http://schemas.microsoft.com/2003/10/Serialization/", "QName");
     private final static QName _GetInfoResponseBody_QNAME = new QName("http://www.mnb.hu/webservices/", "GetInfoResponseBody");
-    private final static QName _GetCurrentExchangeRatesResponseBodyGetCurrentExchangeRatesResult_QNAME = new QName("http://www.mnb.hu/webservices/", "GetCurrentExchangeRatesResult");
     private final static QName _GetCurrenciesResponseBodyGetCurrenciesResult_QNAME = new QName("http://www.mnb.hu/webservices/", "GetCurrenciesResult");
     private final static QName _GetInfoResponseBodyGetInfoResult_QNAME = new QName("http://www.mnb.hu/webservices/", "GetInfoResult");
-    private final static QName _GetExchangeRatesResponseBodyGetExchangeRatesResult_QNAME = new QName("http://www.mnb.hu/webservices/", "GetExchangeRatesResult");
-    private final static QName _GetCurrencyUnitsRequestBodyCurrencyNames_QNAME = new QName("http://www.mnb.hu/webservices/", "currencyNames");
-    private final static QName _GetCurrencyUnitsResponseBodyGetCurrencyUnitsResult_QNAME = new QName("http://www.mnb.hu/webservices/", "GetCurrencyUnitsResult");
-    private final static QName _GetExchangeRatesRequestBodyStartDate_QNAME = new QName("http://www.mnb.hu/webservices/", "startDate");
-    private final static QName _GetExchangeRatesRequestBodyEndDate_QNAME = new QName("http://www.mnb.hu/webservices/", "endDate");
     private final static QName _GetDateIntervalResponseBodyGetDateIntervalResult_QNAME = new QName("http://www.mnb.hu/webservices/", "GetDateIntervalResult");
+    private final static QName _GetExchangeRatesRequestBodyStartDate_QNAME = new QName("http://www.mnb.hu/webservices/", "startDate");
+    private final static QName _GetExchangeRatesRequestBodyCurrencyNames_QNAME = new QName("http://www.mnb.hu/webservices/", "currencyNames");
+    private final static QName _GetExchangeRatesRequestBodyEndDate_QNAME = new QName("http://www.mnb.hu/webservices/", "endDate");
+    private final static QName _GetCurrencyUnitsResponseBodyGetCurrencyUnitsResult_QNAME = new QName("http://www.mnb.hu/webservices/", "GetCurrencyUnitsResult");
+    private final static QName _GetExchangeRatesResponseBodyGetExchangeRatesResult_QNAME = new QName("http://www.mnb.hu/webservices/", "GetExchangeRatesResult");
+    private final static QName _GetCurrentExchangeRatesResponseBodyGetCurrentExchangeRatesResult_QNAME = new QName("http://www.mnb.hu/webservices/", "GetCurrentExchangeRatesResult");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: hu.dual.invoices.mnb
@@ -595,15 +595,6 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.mnb.hu/webservices/", name = "GetCurrentExchangeRatesResult", scope = GetCurrentExchangeRatesResponseBody.class)
-    public JAXBElement<String> createGetCurrentExchangeRatesResponseBodyGetCurrentExchangeRatesResult(String value) {
-        return new JAXBElement<String>(_GetCurrentExchangeRatesResponseBodyGetCurrentExchangeRatesResult_QNAME, String.class, GetCurrentExchangeRatesResponseBody.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
     @XmlElementDecl(namespace = "http://www.mnb.hu/webservices/", name = "GetCurrenciesResult", scope = GetCurrenciesResponseBody.class)
     public JAXBElement<String> createGetCurrenciesResponseBodyGetCurrenciesResult(String value) {
         return new JAXBElement<String>(_GetCurrenciesResponseBodyGetCurrenciesResult_QNAME, String.class, GetCurrenciesResponseBody.class, value);
@@ -622,27 +613,9 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.mnb.hu/webservices/", name = "GetExchangeRatesResult", scope = GetExchangeRatesResponseBody.class)
-    public JAXBElement<String> createGetExchangeRatesResponseBodyGetExchangeRatesResult(String value) {
-        return new JAXBElement<String>(_GetExchangeRatesResponseBodyGetExchangeRatesResult_QNAME, String.class, GetExchangeRatesResponseBody.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.mnb.hu/webservices/", name = "currencyNames", scope = GetCurrencyUnitsRequestBody.class)
-    public JAXBElement<String> createGetCurrencyUnitsRequestBodyCurrencyNames(String value) {
-        return new JAXBElement<String>(_GetCurrencyUnitsRequestBodyCurrencyNames_QNAME, String.class, GetCurrencyUnitsRequestBody.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.mnb.hu/webservices/", name = "GetCurrencyUnitsResult", scope = GetCurrencyUnitsResponseBody.class)
-    public JAXBElement<String> createGetCurrencyUnitsResponseBodyGetCurrencyUnitsResult(String value) {
-        return new JAXBElement<String>(_GetCurrencyUnitsResponseBodyGetCurrencyUnitsResult_QNAME, String.class, GetCurrencyUnitsResponseBody.class, value);
+    @XmlElementDecl(namespace = "http://www.mnb.hu/webservices/", name = "GetDateIntervalResult", scope = GetDateIntervalResponseBody.class)
+    public JAXBElement<String> createGetDateIntervalResponseBodyGetDateIntervalResult(String value) {
+        return new JAXBElement<String>(_GetDateIntervalResponseBodyGetDateIntervalResult_QNAME, String.class, GetDateIntervalResponseBody.class, value);
     }
 
     /**
@@ -660,7 +633,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.mnb.hu/webservices/", name = "currencyNames", scope = GetExchangeRatesRequestBody.class)
     public JAXBElement<String> createGetExchangeRatesRequestBodyCurrencyNames(String value) {
-        return new JAXBElement<String>(_GetCurrencyUnitsRequestBodyCurrencyNames_QNAME, String.class, GetExchangeRatesRequestBody.class, value);
+        return new JAXBElement<String>(_GetExchangeRatesRequestBodyCurrencyNames_QNAME, String.class, GetExchangeRatesRequestBody.class, value);
     }
 
     /**
@@ -676,9 +649,36 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.mnb.hu/webservices/", name = "GetDateIntervalResult", scope = GetDateIntervalResponseBody.class)
-    public JAXBElement<String> createGetDateIntervalResponseBodyGetDateIntervalResult(String value) {
-        return new JAXBElement<String>(_GetDateIntervalResponseBodyGetDateIntervalResult_QNAME, String.class, GetDateIntervalResponseBody.class, value);
+    @XmlElementDecl(namespace = "http://www.mnb.hu/webservices/", name = "currencyNames", scope = GetCurrencyUnitsRequestBody.class)
+    public JAXBElement<String> createGetCurrencyUnitsRequestBodyCurrencyNames(String value) {
+        return new JAXBElement<String>(_GetExchangeRatesRequestBodyCurrencyNames_QNAME, String.class, GetCurrencyUnitsRequestBody.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.mnb.hu/webservices/", name = "GetCurrencyUnitsResult", scope = GetCurrencyUnitsResponseBody.class)
+    public JAXBElement<String> createGetCurrencyUnitsResponseBodyGetCurrencyUnitsResult(String value) {
+        return new JAXBElement<String>(_GetCurrencyUnitsResponseBodyGetCurrencyUnitsResult_QNAME, String.class, GetCurrencyUnitsResponseBody.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.mnb.hu/webservices/", name = "GetExchangeRatesResult", scope = GetExchangeRatesResponseBody.class)
+    public JAXBElement<String> createGetExchangeRatesResponseBodyGetExchangeRatesResult(String value) {
+        return new JAXBElement<String>(_GetExchangeRatesResponseBodyGetExchangeRatesResult_QNAME, String.class, GetExchangeRatesResponseBody.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.mnb.hu/webservices/", name = "GetCurrentExchangeRatesResult", scope = GetCurrentExchangeRatesResponseBody.class)
+    public JAXBElement<String> createGetCurrentExchangeRatesResponseBodyGetCurrentExchangeRatesResult(String value) {
+        return new JAXBElement<String>(_GetCurrentExchangeRatesResponseBodyGetCurrentExchangeRatesResult_QNAME, String.class, GetCurrentExchangeRatesResponseBody.class, value);
     }
 
 }

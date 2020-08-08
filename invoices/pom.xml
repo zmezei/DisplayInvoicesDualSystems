@@ -65,7 +65,7 @@
 	             	<configuration>
 	             		<wsdlUrls>
 	             			<wsdlLocation>
-	             				http://www.mnb.hu/arfolyamok.asmx?wsdl
+	             				http://www.mnb.hu/arfolyamok.asmx?singlewsdl
 	             			</wsdlLocation>
 	             		</wsdlUrls>
 	                  <vmArgs>

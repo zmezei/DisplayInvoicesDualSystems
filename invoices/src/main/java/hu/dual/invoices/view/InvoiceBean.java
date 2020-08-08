@@ -1,7 +1,6 @@
 package hu.dual.invoices.view;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -11,6 +10,9 @@ import javax.inject.Named;
 
 import hu.dual.invoices.entities.Invoice;
 import hu.dual.invoices.entities.InvoiceItem;
+import hu.dual.invoices.mnb.MNBArfolyamServiceSoap;
+import hu.dual.invoices.mnb.MNBArfolyamServiceSoapGetCurrentExchangeRatesStringFaultFaultMessage;
+import hu.dual.invoices.mnb.MNBArfolyamServiceSoapImpl;
 import hu.dual.invoices.service.InvoiceService;
 
 @Named
@@ -25,6 +27,12 @@ public class InvoiceBean {
 	private Invoice currentInvoice;
 	
 	private List<InvoiceItem> currentInvoiceItems;
+	
+	private String currentExchangeRates;
+
+	public void setCurrentExchangeRates(String currentExchangeRates) {
+		this.currentExchangeRates = currentExchangeRates;
+	}
 
 	public List<InvoiceItem> getCurrentInvoiceItems() {
 		return currentInvoiceItems;
@@ -49,6 +57,7 @@ public class InvoiceBean {
 	@PostConstruct
 	public void init() {
 		invoices = invoiceService.listAllInvoices();
+		//getCurrentExchangeRates();
 	}
 	
 	public List<Invoice> getInvoices() {
@@ -60,6 +69,23 @@ public class InvoiceBean {
 		currentInvoice = invoices.stream().filter(invoice -> invoice.getId() == currentInvoiceId).findFirst().get();
 		currentInvoiceItems = invoiceService.listItemsOfInvoice(currentInvoiceId);
 		return "itemsOfInvoiceList";
+	}
+	
+	public void getCurrentExchangeRates() {
+		MNBArfolyamServiceSoapImpl impl = new MNBArfolyamServiceSoapImpl();
+		MNBArfolyamServiceSoap service = impl.getCustomBindingMNBArfolyamServiceSoap();
+		try {
+			String resp = service.getCurrentExchangeRates();
+//		    JAXBContext jaxbContext = JAXBContext.newInstance(GetExchangeRatesResponseBody.class);              
+//		    Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+//		    GetExchangeRatesResponseBody responseBody = (GetExchangeRatesResponseBody) jaxbUnmarshaller.unmarshal(new StringReader(resp));
+//		    currentExchangeRates = responseBody.getGetExchangeRatesResult().getValue();
+			currentExchangeRates = resp;
+//		} catch (JAXBException e) {
+//			e.printStackTrace();
+		} catch (MNBArfolyamServiceSoapGetCurrentExchangeRatesStringFaultFaultMessage e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
