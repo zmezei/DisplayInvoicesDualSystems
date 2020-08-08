@@ -17,20 +17,20 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "MNBArfolyamServiceSoapImpl", targetNamespace = "http://www.mnb.hu/webservices/", wsdlLocation = "http://www.mnb.hu/arfolyamok.asmx?singlewsdl")
+@WebServiceClient(name = "MNBArfolyamServiceSoapImpl", targetNamespace = "http://tempuri.org/", wsdlLocation = "http://www.mnb.hu/arfolyamok.asmx?wsdl")
 public class MNBArfolyamServiceSoapImpl
     extends Service
 {
 
     private final static URL MNBARFOLYAMSERVICESOAPIMPL_WSDL_LOCATION;
     private final static WebServiceException MNBARFOLYAMSERVICESOAPIMPL_EXCEPTION;
-    private final static QName MNBARFOLYAMSERVICESOAPIMPL_QNAME = new QName("http://www.mnb.hu/webservices/", "MNBArfolyamServiceSoapImpl");
+    private final static QName MNBARFOLYAMSERVICESOAPIMPL_QNAME = new QName("http://tempuri.org/", "MNBArfolyamServiceSoapImpl");
 
     static {
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://www.mnb.hu/arfolyamok.asmx?singlewsdl");
+            url = new URL("http://www.mnb.hu/arfolyamok.asmx?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
@@ -69,7 +69,7 @@ public class MNBArfolyamServiceSoapImpl
      */
     @WebEndpoint(name = "CustomBinding_MNBArfolyamServiceSoap")
     public MNBArfolyamServiceSoap getCustomBindingMNBArfolyamServiceSoap() {
-        return super.getPort(new QName("http://www.mnb.hu/webservices/", "CustomBinding_MNBArfolyamServiceSoap"), MNBArfolyamServiceSoap.class);
+        return super.getPort(new QName("http://tempuri.org/", "CustomBinding_MNBArfolyamServiceSoap"), MNBArfolyamServiceSoap.class);
     }
 
     /**
@@ -81,7 +81,7 @@ public class MNBArfolyamServiceSoapImpl
      */
     @WebEndpoint(name = "CustomBinding_MNBArfolyamServiceSoap")
     public MNBArfolyamServiceSoap getCustomBindingMNBArfolyamServiceSoap(WebServiceFeature... features) {
-        return super.getPort(new QName("http://www.mnb.hu/webservices/", "CustomBinding_MNBArfolyamServiceSoap"), MNBArfolyamServiceSoap.class, features);
+        return super.getPort(new QName("http://tempuri.org/", "CustomBinding_MNBArfolyamServiceSoap"), MNBArfolyamServiceSoap.class, features);
     }
 
     private static URL __getWsdlLocation() {

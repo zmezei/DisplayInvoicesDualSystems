@@ -14,4 +14,7 @@
     <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
     <param-value>client</param-value>
   </context-param>
+  <welcome-file-list>
+    <welcome-file>invoiceList.xhtml</welcome-file>
+  </welcome-file-list>
 </web-app>
