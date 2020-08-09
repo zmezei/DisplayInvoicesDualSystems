@@ -1,6 +1,6 @@
 package hu.dual.invoices.entities;
 
-import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "INVOICE")
-public class Invoice implements Serializable {
+public class Invoice {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -42,7 +42,7 @@ public class Invoice implements Serializable {
 	
 	@NotNull
 	@Column(name = "invoice_total")
-	private Double invoiceTotal;
+	private BigDecimal invoiceTotal;
 
 	public int getId() {
 		return id;
@@ -92,11 +92,11 @@ public class Invoice implements Serializable {
 		this.invoiceItems = invoiceItems;
 	}
 
-	public Double getInvoiceTotal() {
+	public BigDecimal getInvoiceTotal() {
 		return invoiceTotal;
 	}
 
-	public void setInvoiceTotal(Double invoiceTotal) {
+	public void setInvoiceTotal(BigDecimal invoiceTotal) {
 		this.invoiceTotal = invoiceTotal;
 	}
 	

@@ -6,7 +6,7 @@
 	<h:head>
 	    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
 	    <h:outputStylesheet library="css" name="bootstrap.min.css" />     
-	    <title>List invoices</title>
+	    <title>Invoice item list</title>
 	    <style type="text/css">
 	        .tableUpdated {
 	            width: 90% !important;
@@ -43,7 +43,9 @@
 			    </h:column>
 			    <h:column>
 		    		<f:facet name="header">Calculated invoice total</f:facet>
-	            	<h:outputText value="#{invoice.invoiceTotal}"/>
+	            	<h:outputText value="#{invoice.invoiceTotal}">
+	            		<f:convertNumber/>
+	            	</h:outputText>
 			    </h:column>
 			    <h:column>
 		    		<f:facet name="header">Calculated invoice total (EUR)</f:facet>
@@ -70,16 +72,18 @@
 			    </h:column>
 				<h:column>
 		    		<f:facet name="header">Calculated total price (HUF)</f:facet>
-	            	<h:outputText value="#{item.totalItemPrice}"/>
+	            	<h:outputText value="#{item.totalItemPrice}">
+	            		<f:convertNumber/>
+	            	</h:outputText>
 			    </h:column>
 			    <h:column>
 		    		<f:facet name="header">Calculated total price (EUR)</f:facet>
-	            	<h:outputText value="#{item.totalItemPrice / invoiceBean.currentEurExchangeRate}" pattern="#0.00">
-	            		<f:convertNumber pattern="#0.00" />
+	            	<h:outputText value="#{item.totalItemPrice / invoiceBean.currentEurExchangeRate}">
+	            		<f:convertNumber pattern="#0.00"/>
 	            	</h:outputText>
 			    </h:column>
 			</h:dataTable>
 		</h:form>
-        <h:button outcome="invoiceList" value="List items" styleClass="btn btn-primary headerStyle"/>
+        <h:button outcome="invoiceList" value="Back to invoice list" styleClass="btn btn-primary headerStyle"/>
 	</h:body>
 </html>

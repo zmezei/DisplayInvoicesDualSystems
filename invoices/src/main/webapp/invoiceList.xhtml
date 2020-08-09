@@ -6,7 +6,7 @@
 	<h:head>
 	    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
 	    <h:outputStylesheet library="css" name="bootstrap.min.css" />     
-	    <title>List invoices</title>
+	    <title>Invoice list</title>
 	    <style type="text/css">
 	        .tableUpdated {
 	            width: 90% !important;
@@ -14,7 +14,7 @@
 	        }
 	        .btnSpace {
 	            margin: 17px;
-	        }     
+	        }
 	    </style>
 	</h:head>
 	<h:body>
@@ -27,11 +27,15 @@
 			    </h:column>
 			    <h:column>
 		    		<f:facet name="header">Issue date</f:facet>
-	            	<h:outputText value="#{invoice.issueDate}"/>
+	            	<h:outputText value="#{invoice.issueDate}">
+	            		<f:convertDateTime pattern="yyyy.MM.dd."/>
+	            	</h:outputText>
 			    </h:column>
 			    <h:column>
 		    		<f:facet name="header">Due date</f:facet>
-	            	<h:outputText value="#{invoice.dueDate}"/>
+	            	<h:outputText value="#{invoice.dueDate}">
+	            		<f:convertDateTime pattern="yyyy.MM.dd."/>
+	            	</h:outputText>
 			    </h:column>
 				<h:column>
 		    		<f:facet name="header">Comment</f:facet>
@@ -39,17 +43,19 @@
 			    </h:column>
 			    <h:column>
 		    		<f:facet name="header">Calculated invoice total (HUF)</f:facet>
-	            	<h:outputText value="#{invoice.invoiceTotal}"/>
-			    </h:column>
-			    <h:column>
-		    		<f:facet name="header">Calculated invoice total (EUR)</f:facet>
-	            	<h:outputText value="#{invoice.invoiceTotal / invoiceBean.currentEurExchangeRate}" pattern="#0.00">
-	            		<f:convertNumber pattern="#0.00" />
+	            	<h:outputText value="#{invoice.invoiceTotal}">
+	            		<f:convertNumber/>
 	            	</h:outputText>
 			    </h:column>
 			    <h:column>
-	                <f:facet name="header">List items</f:facet>
-	                <h:commandButton action="#{invoiceBean.getItemsOfInvoice()}" value="List items" styleClass="btn btn-primary">
+		    		<f:facet name="header">Calculated invoice total (EUR)</f:facet>
+	            	<h:outputText value="#{invoice.invoiceTotal / invoiceBean.currentEurExchangeRate}">
+	            		<f:convertNumber pattern="#0.00"/>
+	            	</h:outputText>
+			    </h:column>
+			    <h:column>
+	                <f:facet name="header"></f:facet>
+	                <h:commandButton action="#{invoiceBean.getItemsOfInvoice()}" value="View items" styleClass="btn btn-primary">
 	                    <f:param name="selectedInvoiceId" value="#{invoice.id}"/>
 	                </h:commandButton>
 	            </h:column>

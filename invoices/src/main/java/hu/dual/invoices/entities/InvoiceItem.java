@@ -1,6 +1,6 @@
 package hu.dual.invoices.entities;
 
-import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "INVOICE_ITEM")
-public class InvoiceItem implements Serializable {
+public class InvoiceItem {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -26,14 +26,14 @@ public class InvoiceItem implements Serializable {
 	
 	@NotNull
 	@Column(name = "unit_price")
-	private Double unitPrice;
+	private BigDecimal unitPrice;
 	
 	@NotNull
-	private int quantity;
+	private BigDecimal quantity;
 	
 	@NotNull
 	@Column(name = "total_item_price")
-	private Double totalItemPrice;
+	private BigDecimal totalItemPrice;
 	
 	@NotNull
 	@ManyToOne
@@ -56,27 +56,27 @@ public class InvoiceItem implements Serializable {
 		this.productName = productName;
 	}
 
-	public Double getUnitPrice() {
+	public BigDecimal getUnitPrice() {
 		return unitPrice;
 	}
 
-	public void setUnitPrice(Double unitPrice) {
+	public void setUnitPrice(BigDecimal unitPrice) {
 		this.unitPrice = unitPrice;
 	}
 
-	public int getQuantity() {
+	public BigDecimal getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(BigDecimal quantity) {
 		this.quantity = quantity;
 	}
 
-	public Double getTotalItemPrice() {
+	public BigDecimal getTotalItemPrice() {
 		return totalItemPrice;
 	}
 
-	public void setTotalItemPrice(Double totalItemPrice) {
+	public void setTotalItemPrice(BigDecimal totalItemPrice) {
 		this.totalItemPrice = totalItemPrice;
 	}
 

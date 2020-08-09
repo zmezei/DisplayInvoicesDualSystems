@@ -43,10 +43,6 @@ public class InvoiceBean {
 	@Inject
 	private InvoiceService invoiceService;
 	
-	public List<Invoice> getInvoices() {
-		return invoices;
-	}
-	
 	private List<Invoice> invoices;
 	
 	private Invoice currentInvoice;
@@ -79,6 +75,10 @@ public class InvoiceBean {
 		this.currentInvoice = currentInvoice;
 	}
 
+	public List<Invoice> getInvoices() {
+		return invoices;
+	}
+	
 	public void setInvoices(List<Invoice> invoices) {
 		this.invoices = invoices;
 	}
