@@ -44,13 +44,13 @@
 			    <h:column>
 		    		<f:facet name="header">Calculated invoice total</f:facet>
 	            	<h:outputText value="#{invoice.invoiceTotal}">
-	            		<f:convertNumber/>
+	            		<f:convertNumber type="currency"/>
 	            	</h:outputText>
 			    </h:column>
 			    <h:column>
 		    		<f:facet name="header">Calculated invoice total (EUR)</f:facet>
-	            	<h:outputText value="#{invoice.invoiceTotal / invoiceBean.currentEurExchangeRate}" pattern="#0.00">
-	            		<f:convertNumber pattern="#0.00" />
+	            	<h:outputText value="#{invoice.invoiceTotal / invoiceBean.currentEurExchangeRate}">
+	            		<f:convertNumber type="currency"/>
 	            	</h:outputText>
 			    </h:column>
 			</h:dataTable>
@@ -73,13 +73,13 @@
 				<h:column>
 		    		<f:facet name="header">Calculated total price (HUF)</f:facet>
 	            	<h:outputText value="#{item.totalItemPrice}">
-	            		<f:convertNumber/>
+	            		<f:convertNumber type="currency"/>
 	            	</h:outputText>
 			    </h:column>
 			    <h:column>
 		    		<f:facet name="header">Calculated total price (EUR)</f:facet>
 	            	<h:outputText value="#{item.totalItemPrice / invoiceBean.currentEurExchangeRate}">
-	            		<f:convertNumber pattern="#0.00"/>
+	            		<f:convertNumber type="currency"/>
 	            	</h:outputText>
 			    </h:column>
 			</h:dataTable>
