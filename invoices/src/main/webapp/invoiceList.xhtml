@@ -44,13 +44,13 @@
 			    <h:column>
 		    		<f:facet name="header">Calculated invoice total (HUF)</f:facet>
 	            	<h:outputText value="#{invoice.invoiceTotal}">
-	            		<f:convertNumber type="currency"/>
+	            		<f:convertNumber/>
 	            	</h:outputText>
 			    </h:column>
 			    <h:column>
 		    		<f:facet name="header">Calculated invoice total (EUR)</f:facet>
 	            	<h:outputText value="#{invoice.invoiceTotal / invoiceBean.currentEurExchangeRate}">
-	            		<f:convertNumber type="currency"/>
+	            		<f:convertNumber pattern="##0.00"/>
 	            	</h:outputText>
 			    </h:column>
 			    <h:column>

@@ -42,7 +42,7 @@ public class Invoice {
 	
 	@NotNull
 	@Column(name = "invoice_total")
-	private BigDecimal invoiceTotal;
+	private Double invoiceTotal;
 
 	public int getId() {
 		return id;
@@ -92,11 +92,11 @@ public class Invoice {
 		this.invoiceItems = invoiceItems;
 	}
 
-	public BigDecimal getInvoiceTotal() {
+	public Double getInvoiceTotal() {
 		return invoiceTotal;
 	}
 
-	public void setInvoiceTotal(BigDecimal invoiceTotal) {
+	public void setInvoiceTotal(Double invoiceTotal) {
 		this.invoiceTotal = invoiceTotal;
 	}
 	

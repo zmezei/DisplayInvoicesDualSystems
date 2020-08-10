@@ -26,14 +26,14 @@ public class InvoiceItem {
 	
 	@NotNull
 	@Column(name = "unit_price")
-	private BigDecimal unitPrice;
+	private Double unitPrice;
 	
 	@NotNull
-	private BigDecimal quantity;
+	private Double quantity;
 	
 	@NotNull
 	@Column(name = "total_item_price")
-	private BigDecimal totalItemPrice;
+	private Double totalItemPrice;
 	
 	@NotNull
 	@ManyToOne
@@ -56,27 +56,27 @@ public class InvoiceItem {
 		this.productName = productName;
 	}
 
-	public BigDecimal getUnitPrice() {
+	public Double getUnitPrice() {
 		return unitPrice;
 	}
 
-	public void setUnitPrice(BigDecimal unitPrice) {
+	public void setUnitPrice(Double unitPrice) {
 		this.unitPrice = unitPrice;
 	}
 
-	public BigDecimal getQuantity() {
+	public Double getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(BigDecimal quantity) {
+	public void setQuantity(Double quantity) {
 		this.quantity = quantity;
 	}
 
-	public BigDecimal getTotalItemPrice() {
+	public Double getTotalItemPrice() {
 		return totalItemPrice;
 	}
 
-	public void setTotalItemPrice(BigDecimal totalItemPrice) {
+	public void setTotalItemPrice(Double totalItemPrice) {
 		this.totalItemPrice = totalItemPrice;
 	}
 

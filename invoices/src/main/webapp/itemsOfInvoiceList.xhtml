@@ -31,26 +31,30 @@
 			    </h:column>
 			    <h:column>
 		    		<f:facet name="header">Issue date</f:facet>
-	            	<h:outputText value="#{invoice.issueDate}"/>
+	            	<h:outputText value="#{invoice.issueDate}">
+	            		<f:convertDateTime pattern="yyyy.MM.dd."/>
+	            	</h:outputText>
 			    </h:column>
 			    <h:column>
 		    		<f:facet name="header">Due date</f:facet>
-	            	<h:outputText value="#{invoice.dueDate}"/>
+	            	<h:outputText value="#{invoice.dueDate}">
+	            		<f:convertDateTime pattern="yyyy.MM.dd."/>
+	            	</h:outputText>
 			    </h:column>
 				<h:column>
 		    		<f:facet name="header">Comment</f:facet>
 	            	<h:outputText value="#{invoice.invoiceComment}"/>
 			    </h:column>
 			    <h:column>
-		    		<f:facet name="header">Calculated invoice total</f:facet>
+		    		<f:facet name="header">Calculated invoice total (HUF)</f:facet>
 	            	<h:outputText value="#{invoice.invoiceTotal}">
-	            		<f:convertNumber type="currency"/>
+	            		<f:convertNumber/>
 	            	</h:outputText>
 			    </h:column>
 			    <h:column>
 		    		<f:facet name="header">Calculated invoice total (EUR)</f:facet>
 	            	<h:outputText value="#{invoice.invoiceTotal / invoiceBean.currentEurExchangeRate}">
-	            		<f:convertNumber type="currency"/>
+	            		<f:convertNumber pattern="##0.00"/>
 	            	</h:outputText>
 			    </h:column>
 			</h:dataTable>
@@ -73,13 +77,13 @@
 				<h:column>
 		    		<f:facet name="header">Calculated total price (HUF)</f:facet>
 	            	<h:outputText value="#{item.totalItemPrice}">
-	            		<f:convertNumber type="currency"/>
+	            		<f:convertNumber/>
 	            	</h:outputText>
 			    </h:column>
 			    <h:column>
 		    		<f:facet name="header">Calculated total price (EUR)</f:facet>
 	            	<h:outputText value="#{item.totalItemPrice / invoiceBean.currentEurExchangeRate}">
-	            		<f:convertNumber type="currency"/>
+	            		<f:convertNumber pattern="##0.00"/>
 	            	</h:outputText>
 			    </h:column>
 			</h:dataTable>
